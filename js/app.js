@@ -1,3 +1,6 @@
+//variables declaration for usage in different functions
+
+
 // cards array holds all cards
 let card = document.getElementsByClassName("card");
 let cards = [...card]
@@ -5,9 +8,6 @@ let cards = [...card]
 // deck of all cards in game
 const deck = document.getElementById("card-deck");
 
-// declaring move variable
-let moves = 0;
-let counter = document.querySelector(".moves");
 
 // declare variables for star icons
 const stars = document.querySelectorAll(".fa-star");
@@ -25,13 +25,12 @@ let matchedCard = document.getElementsByClassName("match");
  let modal = document.getElementById("popup1")
 
  // array for opened cards
-var openedCards = [];
+const openedCards = [];
 
-
-// shuffles cards
+// shuffles function for shuflling of cards before the game starts
 
 function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
+    const currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -49,12 +48,17 @@ function shuffle(array) {
 document.body.onload = startGame();
 
 
-// @starting new game
+
+// New game function to play the memory game
 function startGame(){
     // shuffle deck
+ // declaring move variable
+const moves = 0;
+const counter = document.querySelector(".moves");
+openedCards = [];
     cards = shuffle(cards);
     // remove all exisiting classes from each card
-    for (var i = 0; i < cards.length; i++){
+    for (const i = 0; i < cards.length; i++){
         deck.innerHTML = "";
         [].forEach.call(cards, function(item) {
             deck.appendChild(item);
@@ -65,7 +69,7 @@ function startGame(){
     moves = 0;
     counter.innerHTML = moves;
     // reset rating
-    for (var i= 0; i < stars.length; i++){
+    for (const i= 0; i < stars.length; i++){
         stars[i].style.color = "#FFD700";
         stars[i].style.visibility = "visible";
     }
@@ -73,24 +77,24 @@ function startGame(){
     second = 0;
     minute = 0; 
     hour = 0;
-    var timer = document.querySelector(".timer");
+    const timer = document.querySelector(".timer");
     timer.innerHTML = "0 mins 0 secs";
     clearInterval(interval);
 }
 
 
 // toggling option
-var displayCard = function (){
+const displayCard = function (){
     this.classList.toggle("open");
     this.classList.toggle("show");
     this.classList.toggle("disabled");
 };
 
 
-// opwnws cards
+// open cards
 function cardOpen() {
     openedCards.push(this);
-    var len = openedCards.length;
+   const len = openedCards.length;
     if(len === 2){
         moveCounter();
         if(openedCards[0].type === openedCards[1].type){
@@ -175,9 +179,9 @@ function moveCounter(){
 
 
 //  game timer
-var second = 0, minute = 0; hour = 0;
-var timer = document.querySelector(".timer");
-var interval;
+const second = 0, minute = 0; hour = 0;
+const timer = document.querySelector(".timer");
+const interval;
 function startTimer(){
     interval = setInterval(function(){
         timer.innerHTML = minute+"mins "+second+"secs";
@@ -204,7 +208,7 @@ function congratulations(){
         modal.classList.add("show");
 
         // declare star rating variable
-        var starRating = document.querySelector(".stars").innerHTML;
+        const starRating = document.querySelector(".stars").innerHTML;
 
         //showing move, rating, time on modal
         document.getElementById("finalMove").innerHTML = moves;
@@ -234,7 +238,7 @@ function playAgain(){
 
 
 // loop to add event listeners to each card
-for (var i = 0; i < cards.length; i++){
+for (const = 0; i < cards.length; i++){
     card = cards[i];
     card.addEventListener("click", displayCard);
     card.addEventListener("click", cardOpen);
