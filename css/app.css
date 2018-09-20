@@ -213,13 +213,13 @@ h1 {
 }
 
 #play-again {
-    background-color: #141214;
+    background-color: #000000;
     padding: 0.7rem 1rem;
     font-size: 1.1rem;
     display: block;
     margin: 0 auto;
     width: 50%;
-    font-family: 'Arial;
+    font-family: 'Arial';
     color: #ffffff;
     border-radius: 5px;
 }
