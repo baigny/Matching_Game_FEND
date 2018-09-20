@@ -53,7 +53,7 @@ document.body.onload = startGame();
 function startGame(){
     // shuffle deck
  // declaring move variable
-const moves = 0;
+let moves = 0;
 const counter = document.querySelector(".moves");
 openedCards = [];
     cards = shuffle(cards);
