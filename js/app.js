@@ -24,6 +24,7 @@ let closeicon = document.querySelector(".close");
 // declare modal
 let modal = document.getElementById("popup1");
 
+<<<<<<< HEAD
 // array for opened cards
 let openedCards = [];
 
@@ -37,6 +38,10 @@ let moves = 0;
 let counter = 0;
 const timer = document.querySelector(".timer");
 let interval; // variable to changed to let
+=======
+ // array for opened cards
+let openedCards = [];
+>>>>>>> 386f92f1ee0f43c1fc094182555d5035fd54f554
 
 // shuffles function for shuflling of cards before the game starts
 
@@ -63,8 +68,14 @@ document.body.onload = startGame();
 // New game function to play the memory game
 function startGame(){
     // shuffle deck
+<<<<<<< HEAD
 
 let counter = document.querySelector(".moves");
+=======
+ // declaring move variable
+let moves = 0;
+const counter = document.querySelector(".moves");
+>>>>>>> 386f92f1ee0f43c1fc094182555d5035fd54f554
 openedCards = [];
     cards = shuffle(cards);
     // remove all exisiting classes from each card
@@ -246,7 +257,11 @@ function playAgain(){
 
 
 // loop to add event listeners to each card
+<<<<<<< HEAD
 for (let i = 0; i < cards.length; i++){
+=======
+for (const i = 0; i < cards.length; i++){
+>>>>>>> 386f92f1ee0f43c1fc094182555d5035fd54f554
     card = cards[i];
     card.addEventListener("click", displayCard);
     card.addEventListener("click", cardOpen);
