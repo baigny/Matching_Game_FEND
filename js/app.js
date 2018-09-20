@@ -25,7 +25,7 @@ let matchedCard = document.getElementsByClassName("match");
  let modal = document.getElementById("popup1")
 
  // array for opened cards
-const openedCards = [];
+let openedCards = [];
 
 // shuffles function for shuflling of cards before the game starts
 
@@ -238,7 +238,7 @@ function playAgain(){
 
 
 // loop to add event listeners to each card
-for (const = 0; i < cards.length; i++){
+for (const i = 0; i < cards.length; i++){
     card = cards[i];
     card.addEventListener("click", displayCard);
     card.addEventListener("click", cardOpen);
