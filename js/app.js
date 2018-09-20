@@ -23,8 +23,9 @@ let closeicon = document.querySelector(".close");
 
 // declare modal
 let modal = document.getElementById("popup1");
+// moves element select
 
-// array for opened cards
+// array for opened card
 let openedCards = [];
 
 //  game timer
@@ -34,7 +35,7 @@ hour = 0;
 // declaring move variable
 let moves = 0;
 // counter variale 
-let counter = 0;
+let counter = document.querySelector('.moves');
 const timer = document.querySelector(".timer");
 let interval; // variable to changed to let
 // shuffles function for shuflling of cards before the game starts
@@ -62,10 +63,10 @@ document.body.onload = startGame();
 
 // New game function to play the memory game
 function startGame() {
-    // shuffle deck
-
-    let counter = document.querySelector(".moves");
     openedCards = [];
+    // shuffle deck
+    let counter = document.querySelector(".moves");
+
     cards = shuffle(cards);
     // remove all exisiting classes from each card
     for (let i = 0; i < cards.length; i++) {
@@ -104,7 +105,7 @@ let displayCard = function() {
 // open cards
 function cardOpen() {
     openedCards.push(this);
-    const len = openedCards.length;
+    let len = openedCards.length;
     if (len === 2) {
         moveCounter();
         if (openedCards[0].type === openedCards[1].type) {
@@ -134,8 +135,9 @@ function unmatched() {
     setTimeout(function() {
         openedCards[0].classList.remove("show", "open", "no-event", "unmatched");
         openedCards[1].classList.remove("show", "open", "no-event", "unmatched");
-        enable();
         openedCards = [];
+        enable();
+
     }, 1100);
 }
 
@@ -238,6 +240,7 @@ function closeModal() {
 
 // new game after finishing game
 function playAgain() {
+    openedCards = [];
     modal.classList.remove("show");
     startGame();
 }
