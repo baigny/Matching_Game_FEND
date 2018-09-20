@@ -15,22 +15,33 @@ const stars = document.querySelectorAll(".fa-star");
 // declaring variable of matchedCards
 let matchedCard = document.getElementsByClassName("match");
 
- // stars list
- let starsList = document.querySelectorAll(".stars li");
+// stars list
+let starsList = document.querySelectorAll(".stars li");
 
- // close icon in modal
- let closeicon = document.querySelector(".close");
+// close icon in modal
+let closeicon = document.querySelector(".close");
 
- // declare modal
- let modal = document.getElementById("popup1")
+// declare modal
+let modal = document.getElementById("popup1");
 
- // array for opened cards
-const openedCards = [];
+// array for opened cards
+let openedCards = [];
+
+//  game timer
+let second = 0,
+    minute = 0;
+hour = 0;
+// declaring move variable
+let moves = 0;
+// counter variale 
+let counter = 0;
+const timer = document.querySelector(".timer");
+let interval; // variable to changed to let
 
 // shuffles function for shuflling of cards before the game starts
 
 function shuffle(array) {
-    const currentIndex = array.length, temporaryValue, randomIndex;
+    let currentIndex = array.length, temporaryValue, randomIndex;
 
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -52,13 +63,12 @@ document.body.onload = startGame();
 // New game function to play the memory game
 function startGame(){
     // shuffle deck
- // declaring move variable
-const moves = 0;
-const counter = document.querySelector(".moves");
+
+let counter = document.querySelector(".moves");
 openedCards = [];
     cards = shuffle(cards);
     // remove all exisiting classes from each card
-    for (const i = 0; i < cards.length; i++){
+    for (let i = 0; i < cards.length; i++){
         deck.innerHTML = "";
         [].forEach.call(cards, function(item) {
             deck.appendChild(item);
@@ -69,7 +79,7 @@ openedCards = [];
     moves = 0;
     counter.innerHTML = moves;
     // reset rating
-    for (const i= 0; i < stars.length; i++){
+    for (let i= 0; i < stars.length; i++){
         stars[i].style.color = "#FFD700";
         stars[i].style.visibility = "visible";
     }
@@ -84,7 +94,7 @@ openedCards = [];
 
 
 // toggling option
-const displayCard = function (){
+let displayCard = function (){
     this.classList.toggle("open");
     this.classList.toggle("show");
     this.classList.toggle("disabled");
@@ -179,9 +189,7 @@ function moveCounter(){
 
 
 //  game timer
-const second = 0, minute = 0; hour = 0;
-const timer = document.querySelector(".timer");
-const interval;
+
 function startTimer(){
     interval = setInterval(function(){
         timer.innerHTML = minute+"mins "+second+"secs";
@@ -238,7 +246,7 @@ function playAgain(){
 
 
 // loop to add event listeners to each card
-for (const = 0; i < cards.length; i++){
+for (let i = 0; i < cards.length; i++){
     card = cards[i];
     card.addEventListener("click", displayCard);
     card.addEventListener("click", cardOpen);
